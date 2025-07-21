@@ -1,0 +1,24 @@
+/**
+ * @param {number[]} prices
+ * @return {number}
+ */
+var maxProfit = function(prices) {
+    let profit = 0
+    let minval = prices[0]
+    for (i= 0;i<prices.length;i++){
+        currPrice = prices[i];
+        profit = Math.max(profit,(currPrice - minval));
+        minval = (minval>currPrice)?currPrice : minval
+    }
+
+    return profit;
+};
+/*
+concept - 
+1. saving the values of minvalue and the profit.
+2. while iterating update these two value based on their conditions.
+
+Tips - When need to store the previous value to check[while using onr for loop] then ...
+1. for two paired values --> use Hash Map
+2. for one single value --> use set[not array, as set is fastest when we search in.]
+*/
